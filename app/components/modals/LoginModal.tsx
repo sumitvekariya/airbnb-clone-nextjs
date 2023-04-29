@@ -4,7 +4,7 @@ import useLoginModal from '@/app/hooks/useLoginModal';
 import axios from 'axios';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { AiFillGithub } from 'react-icons/ai';
@@ -13,9 +13,11 @@ import Button from '../Button';
 import { Heading } from '../Heading';
 import Input from '../inputs/Input';
 import Modal from './Modal';
+import useRegisterModal from '@/app/hooks/useRegisterModal';
 
 const LoginModal = () => {
   const router = useRouter();
+  const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
   const {
@@ -28,6 +30,11 @@ const LoginModal = () => {
       password: '',
     },
   });
+
+  const toggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal])
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
@@ -97,9 +104,9 @@ const LoginModal = () => {
         '
       >
         <p>
-          Already have an account?
+          First time using Airbnb?
           <span
-            onClick={() => {}}
+            onClick={toggle}
             className='
               text-neutral-800
               cursor-pointer 
@@ -107,7 +114,7 @@ const LoginModal = () => {
             '
           >
             {' '}
-            Log in
+            Create an account
           </span>
         </p>
       </div>
