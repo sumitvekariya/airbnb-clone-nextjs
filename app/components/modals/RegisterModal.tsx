@@ -6,7 +6,7 @@ import React, { useCallback, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
-import { Heading } from '../Heading';
+import Heading from '../Heading';
 import Modal from './Modal';
 import Input from '../inputs/Input';
 import { toast } from 'react-hot-toast';

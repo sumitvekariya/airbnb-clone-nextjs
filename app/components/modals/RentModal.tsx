@@ -4,7 +4,7 @@ import useRentModal from '@/app/hooks/useRentModal';
 import dynamic from 'next/dynamic';
 import React, { useMemo, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-import { Heading } from '../Heading';
+import Heading from '../Heading';
 import CategoryInput from '../inputs/CategoryInput';
 import Counter from '../inputs/Counter';
 import CountrySelect from '../inputs/CountrySelect';
