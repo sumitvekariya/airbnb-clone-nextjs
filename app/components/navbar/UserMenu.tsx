@@ -4,11 +4,11 @@ import useRegisterModal from '@/app/hooks/useRegisterModal';
 import useRentModal from '@/app/hooks/useRentModal';
 import { SafeUser } from '@/app/types';
 import { signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import React, { useCallback, useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import Avatar from '../Avatar';
 import MenuItem from './MenuItem';
-import { useRouter } from 'next/navigation';
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
@@ -87,24 +87,27 @@ export const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
       {isOpen && (
         <div
           className='
-                            absolute
-                            right-0
-                            top-12
-                            w-[40vw]
-                            overflow-hidden
-                            rounded-xl
-                            bg-white
-                            text-sm
-                            shadow-md
-                            md:w-3/4
-                        '
+            absolute
+            right-0
+            top-12
+            w-[40vw]
+            overflow-hidden
+            rounded-xl
+            bg-white
+            text-sm
+            shadow-md
+            md:w-3/4
+        '
         >
           <div className='flex cursor-pointer flex-col'>
             {currentUser ? (
               <>
-                <MenuItem onClick={() => router.push('/trips')} label='My Trips' />
+                <MenuItem
+                  onClick={() => router.push('/trips')}
+                  label='My Trips'
+                />
                 <MenuItem onClick={() => {}} label='My Favorites' />
-                <MenuItem onClick={() => {}} label='My Reservations' />
+                <MenuItem onClick={() => router.push('/reservations')} label='My Reservations' />
                 <MenuItem onClick={() => {}} label='My Properties' />
                 <MenuItem onClick={rentModal.onOpen} label='Airbnb my home' />
                 <MenuItem onClick={() => signOut()} label='Logout' />
