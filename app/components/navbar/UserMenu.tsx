@@ -8,6 +8,7 @@ import React, { useCallback, useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import Avatar from '../Avatar';
 import MenuItem from './MenuItem';
+import { useRouter } from 'next/navigation';
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
@@ -18,6 +19,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const rentModal = useRentModal();
+  const router = useRouter();
 
   const toggleIsOpen = useCallback(() => {
     setisOpen((value) => !value);
@@ -100,7 +102,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           <div className='flex cursor-pointer flex-col'>
             {currentUser ? (
               <>
-                <MenuItem onClick={() => {}} label='My Trips' />
+                <MenuItem onClick={() => router.push('/trips')} label='My Trips' />
                 <MenuItem onClick={() => {}} label='My Favorites' />
                 <MenuItem onClick={() => {}} label='My Reservations' />
                 <MenuItem onClick={() => {}} label='My Properties' />
