@@ -15,7 +15,7 @@ Demo: https://airbnb-clone-nextjs-sumitvekariya.vercel.app/
 **ORM**: Pirsma
 
 
-![image](https://user-images.githubusercontent.com/20764957/236602907-8c0e5ea7-af75-4c9f-8338-e3866c47cbd9.png)
+![image](https://user-images.githubusercontent.com/20764957/236607343-985969dc-5b0e-4840-8496-7268583992aa.png)
 
 
 ## Getting Started
